@@ -15,9 +15,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: cd sample-packages/npm
-      - run: npm i
-      - run: npm test
+      - run: cd sample-packages/npm & npm i
+      - run: cd sample-packages/npm & npm test
 
   publish-gpr:
     runs-on: ubuntu-latest
@@ -31,7 +30,7 @@ jobs:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
       - run: ls
-      - run: npm ci
-      - run: npm publish
+      - run: cd sample-packages/npm & npm ci
+      - run: cd sample-packages/npm & npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
